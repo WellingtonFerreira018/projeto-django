@@ -1,0 +1,192 @@
+{% extends 'usuarios/base.html' %}
+{% block conteudo %}
+{% load static %}
+
+<head>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<div style="height: 25vh;">
+    <img src="{% static 'img/fundo.jpg' %}" alt="fundo" height="100%" width="100%">
+</div>
+
+<section style="background-color:rgba(25, 25, 25); margin-top: -5%;">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4 bg-dark">
+                    <div class="card-body text-center bg-dark">
+                        <img src="{% static 'img/minha.png' %}" alt="avatar" class="rounded-circle img-fluid"
+                            style="width: 200px;">
+                        <h5 class="my-3">Wellington Ferreira</h5>
+                        <p class="text-muted mb-1">Software Developer</p>
+                        <p class="text-muted mb-4"><i class="fas fa-location-dot me-2"></i>Santa Helena, PR, Brasil</p>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-outline-info me-2"><i
+                                    class="fab fa-react"></i></button>
+                            <button type="button" class="btn btn-outline-secondary me-2"><i
+                                    class="fab fa-aws"></i></button>
+                            <button type="button" class="btn btn-outline-warning me-2"><i
+                                    class="fab fa-js"></i></button>
+                            <button type="button" class="btn btn-outline-primary"><i
+                                    class="fab fa-bootstrap"></i></button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4 mb-lg-0 bg-dark">
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush rounded-3" style="color: white;">
+                            <li class="list-group-item d-flex justify-content-between align-items-center p-3 bg-dark">
+                                <i class="fab fa-github fa-lg" style="color: white;"></i>
+                                <a href="https://github.com/WellingtonFerreira018"
+                                    style="text-decoration: none; color: white;"
+                                    target="_blank">WellingtonFerreira018</a>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center p-3 bg-dark">
+                                <i class="fab fa-linkedin" style="color: white;"></i>
+                                <a href="https://www.linkedin.com/in/wellington-ferreira-9b087224b/"
+                                    style="text-decoration: none; color: white;" target="_blank">
+                                    <p class="mb-0">Wellington Ferreira</p>
+                                </a>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center p-3 bg-dark">
+                                <i class="fas fa-envelope" style="color: white;"></i>
+                                <p class="mb-0" style="color: white;">wellingtonf@alunos.utfpr.edu.br</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card mb-4 bg-dark">
+                    <div class="card-body bg-dark">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="mb-0" style="font-size: 30px; font-weight: 600; color: white">Sobre mim</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <p class="text mb-0" style="padding-left: 9%; padding-top: 3%; font-size: 18px;">
+                                    Estudante de ciência da computação na UTFPR, buscando sempre novos
+                                    conhecimento, quanto crescimento profissional em tecnologias como Framework React
+                                    JS, NestJS, Django, Python, Javascript, Typescript, TypeORM, Docker.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <div class="card mb-4 mb-md-0 bg-dark">
+                            <div class="card-body bg-dark">
+                                <p class="mb-4" style="font-size: 25px; font-weight: 600; color: white">
+                                    Tecnologias
+                                </p>
+
+                                <div class="row">
+                                    <div class="col-sm-4" style="border-right: 1px solid #c9c9cf;">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <p style="color: white;">Tenho experiência</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="d-flex mb-3">
+                                                    <button type="button" class="btn btn-outline-info me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="React"><i
+                                                            class="fab fa-react"></i></button>
+                                                    <button type="button" class="btn btn-outline-secondary me-2"><i
+                                                            class="fab fa-aws"></i></button>
+                                                    <button type="button" class="btn btn-outline-warning me-2"><i
+                                                            class="fab fa-js"></i></button>
+                                                    <button type="button" class="btn btn-outline-primary"><i
+                                                            class="fab fa-bootstrap"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4" style="border-right: 1px solid #c9c9cf;">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <p style="color: white;">Estou estudando</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="d-flex mb-4">
+                                                    <button type="button" class="btn btn-outline-success me-2"><i
+                                                            class="fab fa-python"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <p style="color: white;">Tenho interesse</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="d-flex mb-4">
+                                                    <button type="button" class="btn btn-outline-danger me-2"><i class="fas fa-map-pin"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4 mb-md-0 bg-dark">
+                            <div class="card-body bg-dark">
+                                <p class="mb-4" style="font-size: 25px; font-weight: 600; color: white">
+                                    Minhas Skills
+                                </p>
+                                <p class="mb-1" style="font-size: 14px;">Comunicação</p>
+                                <div class="progress rounded" style="height: 10px;">
+                                    <div class="progress-bar h-5" role="progressbar"
+                                        style="width: 80%; background-color: #8257e5;" aria-valuenow="80"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="mt-4 mb-1" style="font-size: 14px;">Liderança</p>
+                                <div class="progress rounded" style="height: 10px;">
+                                    <div class="progress-bar" role="progressbar"
+                                        style="width: 72%; background-color: #8257e5;" aria-valuenow="72"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="mt-4 mb-1" style="font-size: 14px;">Criatividade</p>
+                                <div class="progress rounded" style="height: 10px;">
+                                    <div class="progress-bar" role="progressbar"
+                                        style="width: 89%; background-color: #8257e5;" aria-valuenow="89"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="mt-4 mb-1" style="font-size: 14px;">Colaboração</p>
+                                <div class="progress rounded" style="height: 10px;">
+                                    <div class="progress-bar" role="progressbar"
+                                        style="width: 55%; background-color: #8257e5;" aria-valuenow="55"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="mt-4 mb-1" style="font-size: 14px;">Relacionamento interpessoal</p>
+                                <div class="progress rounded mb-2" style="height: 10px;">
+                                    <div class="progress-bar" role="progressbar"
+                                        style="width: 66%; background-color: #8257e5;" aria-valuenow="66"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

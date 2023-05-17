@@ -1,0 +1,242 @@
+{% extends 'usuarios/base.html' %}
+{% block conteudo %}
+{% load static %}
+
+<head>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+</head>
+<!-- Demo styles -->
+<style>
+    html,
+    body {
+        position: relative;
+        height: 100%;
+    }
+
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <p style="display: inline-block; font-size: 20px;">
+        Novo Interesse
+    </p>
+    <span class="material-symbols-outlined" style="padding-top: 10px;">
+        add
+    </span>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark" style="color: white;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Novo Interesse</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'interesse' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Titulo do Interesse</label>
+                        <input name="titulo" type="text" class="form-control bg-dark" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" style="color: white;">
+                        <div id="emailHelp" class="form-text">Coloque um titulo explicito.</div>
+                    </div>
+                    <div class="mb-3">
+                        <select name="categoria" class="form-select bg-dark mb-3" aria-label="Default select example"
+                            style="color: white;">
+                            <option selected>Categoria do Interesse</option>
+                            <option value="Esportes">Esportes</option>
+                            <option value="Filmes">Filmes</option>
+                            <option value="Games">Games</option>
+                            <option value="Musicas">Musicas</option>
+                            <option value="Animes">Animes</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Descrição do Interessse</label>
+                        <textarea name="descricao" class="form-control bg-dark" id="exampleFormControlTextarea1"
+                            rows="3" style="color: white;"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label bg-dark">Imagem</label>
+                        <input class="form-control" type="file" id="formFile" name="file">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 style="color: white;">Esportes</h1>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            {% for interesse in interesses %}
+            {% if interesse.categoria == 'Esportes'%}
+            <div class="swiper-slide">
+                <div class="card bg-dark" style="width: 18rem; color: white;">
+                    <img src="{% static 'img/sinuca.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{interesse.titulo}}</h5>
+                        <p class="card-text">{{interesse.descricao}}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 style="color: white;">Filmes</h1>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            {% for interesse in interesses %}
+            {% if interesse.categoria == 'Filmes'%}
+            <div class="swiper-slide">
+                <div class="card bg-dark" style="width: 18rem; color: white;">
+                    <img src="{% static 'img/sinuca.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{interesse.titulo}}</h5>
+                        <p class="card-text">{{interesse.descricao}}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 style="color: white;">Games</h1>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            {% for interesse in interesses %}
+            {% if interesse.categoria == 'Games'%}
+            <div class="swiper-slide">
+                <div class="card bg-dark" style="width: 18rem; color: white;">
+                    <img src="{% static 'img/sinuca.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{interesse.titulo}}</h5>
+                        <p class="card-text">{{interesse.descricao}}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 style="color: white;">Musicas</h1>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            {% for interesse in interesses %}
+            {% if interesse.categoria == 'Musicas'%}
+            <div class="swiper-slide">
+                <div class="card bg-dark" style="width: 18rem; color: white;">
+                    <img src="{% static 'img/sinuca.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{interesse.titulo}}</h5>
+                        <p class="card-text">{{interesse.descricao}}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 style="color: white;">Animes</h1>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            {% for interesse in interesses %}
+            {% if interesse.categoria == 'Animes'%}
+            <div class="swiper-slide">
+                <div class="card bg-dark" style="width: 18rem; color: white;">
+                    <img src="{% static 'img/sinuca.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{interesse.titulo}}</h5>
+                        <p class="card-text">{{interesse.descricao}}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>
+{% endblock %}

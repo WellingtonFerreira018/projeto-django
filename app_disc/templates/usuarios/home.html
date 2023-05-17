@@ -1,0 +1,197 @@
+{% extends 'usuarios/base.html' %}
+{% block conteudo %}
+
+{% load static %}
+
+<style>
+    html {
+        overflow-x: hidden;
+    }
+
+    .img-filme {
+        padding-left: 30%;
+    }
+</style>
+
+<div class="content">
+    <p class="line typing-animation">Olá, eu sou o Wellington Ferreira</p>
+</div>
+
+<div class="container" style="height: 120vh;">
+    <div class="row pb-2">
+        <div class="col-lg-10">
+            <h1>Meus Interesses</h1>
+        </div>
+
+        <div class="col-lg-2 text-lg-center pt-3 d-flex">
+            <p class="px-2">Ver todos</p>
+            <span class="material-symbols-outlined">
+                arrow_forward
+            </span>
+        </div>
+    </div>
+
+    <div class="row pb-3">
+        <div class="col-lg-8 m-0 p-0">
+            <div class="card-interesse" style="background: linear-gradient(109.56deg, #CCFBF1 8.75%, #BBDCE9 101.85%, #99F6E4 101.85%);
+                height: 300px;">
+                <div class="tag-card">
+                    <p class="text-tag-card" style="color: #0F766E;">Esportes</p>
+                </div>
+
+                <div class="row py-3">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="text-card">
+                                    <p>Baralho</p>
+                                </div>
+                                <div class="description-card" style="color: #648E9E;">
+                                    <p>Boku no Hero Academia, também conhecido como My Hero Academia no ocidente, é uma
+                                        série de mangá escrita e ilustrada por Kōhei Horikoshi.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="img-esporte">
+                                    <img src="{% static 'img/poker.png' %}" alt="Baralho">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="text-card" style="padding-left: 0;">
+                                    <p>Sinuca</p>
+                                </div>
+                                <div class="description-card" style="color: #648E9E; padding-left: 0;">
+                                    <p>Kimetsu no Yaiba, também conhecido pelo título em língua inglesa Demon Slayer é
+                                        uma série japonesa de mangá shōnen escrita e ilustrada por Koyoharu Gotōge.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="img-esporte">
+                                    <img src="{% static 'img/sinuca.png' %}" alt="Sinuca">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 m-0 p-0">
+            <div class="card-interesse" style="background: linear-gradient(128.14deg, #FFEDD5 2.71%, #FED7AA 97.55%);
+                    height: 300px;
+                    margin-left: 5%;">
+                <div class="tag-card">
+                    <p class="text-tag-card" style="color: #FB923C;">Filme</p>
+                </div>
+                <div class="text-card">
+                    <p>Perdido em Marte</p>
+                </div>
+                <div class="description-card" style="width: 13%; color: #C07E63;">
+                    <p>"Perdido em Marte" (The Martian) é um filme de ficção científica dirigido por Ridley Scott e
+                        lançado em 2015.</p>
+                </div>
+                <div class="img-filme">
+                    <img src="{% static 'img/filme.png' %}" alt="Perdido em Marte" width="370px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row pb-3">
+        <div class="col-lg-4 m-0 p-0">
+            <div class="card-interesse" style="background: linear-gradient(127.16deg, #FEF9C3 3.85%, #FEF08A 95.73%);
+            height: 300px;">
+                <div class="tag-card">
+                    <p class="text-tag-card" style="color: #CA8A04;">Game</p>
+                </div>
+                <div class="text-card">
+                    <p>League of Legends</p>
+                </div>
+                <div class="description-card">
+                    <p>League of Legends (LoL) é um jogo eletrônico de estratégia em tempo real (MOBA) desenvolvido e
+                        publicado pela Riot Games.</p>
+                </div>
+                <div class="img-card">
+                    <img src="{% static 'img/lol.webp' %}" alt="Lol" width="150px" class="img-card">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8 m-0 p-0">
+            <div class="card-interesse" style="background: linear-gradient(109.56deg, #F3E8FF 8.75%, #D8B4FE 101.85%);
+                    height: 300px;
+                    margin-left: 2%;">
+                <div class="tag-card">
+                    <p class="text-tag-card" style="color: #6A62B7;">Musica</p>
+                </div>
+                <div class="text-card">
+                    <p>Minha Playlist</p>
+                </div>
+                <div class="description-card" style="color: #746FA7;">
+                    <p>Aqui está algumas das minhas musicas favoritas :)</p>
+                </div>
+                <div class="music">
+                    <iframe style="border-radius:12px; margin-left: 37%; margin-top: 4.8%;"
+                        src="https://open.spotify.com/embed/track/0Pjd5h1ZOSyhSwZrDeCIXg?utm_source=generator&theme=0"
+                        width="60%" height="250px" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row pb-2">
+        <div class="col-lg-12 m-0 p-0">
+            <div class="card-interesse" style="background: linear-gradient(96.65deg, #FFF5FE 5.55%, #FBDDF7 93.25%);
+            height: 400px;">
+                <div class="tag-card">
+                    <p class="text-tag-card" style="color: #9E69AA;">Animes</p>
+                </div>
+
+                <div class="row py-3">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="text-card">
+                                    <p>Boku no Hero</p>
+                                </div>
+                                <div class="description-card" style="color: #9E69AA;">
+                                    <p>Boku no Hero Academia, também conhecido como My Hero Academia no ocidente, é uma
+                                        série de mangá escrita e ilustrada por Kōhei Horikoshi.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="img-anime">
+                                    <img src="{% static 'img/allmight.png' %}" alt="Boku no Hero" height="350px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="text-card">
+                                    <p>Kimetsu no Yaiba</p>
+                                </div>
+                                <div class="description-card" style="color: #9E69AA;">
+                                    <p>Kimetsu no Yaiba, também conhecido pelo título em língua inglesa Demon Slayer é
+                                        uma série japonesa de mangá shōnen escrita e ilustrada por Koyoharu Gotōge.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="img-anime">
+                                    <img src="{% static 'img/tanjiro.webp' %}" alt="Demon Slayer" height="370px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
