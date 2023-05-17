@@ -1,1 +1,1 @@
-web: gunicorn projeto-disciplina.wsgi
+web: gunicorn projeto-disc.wsgi --log-file -
