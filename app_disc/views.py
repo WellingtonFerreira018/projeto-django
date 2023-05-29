@@ -1,45 +1,38 @@
 from django.shortcuts import render
-from .models import Usuario
-from .models import Interesse
-from PIL import Image
-import os
+from .models import Interesse, Categoria
 
 def home(request):    
-    return render(request, 'usuarios/home.html')
-
-def usuarios(request):
-
-    #Salvando usuarios
-    novo_usuario = Usuario()
-    novo_usuario.nome = request.POST.get('nome')
-    novo_usuario.idade = request.POST.get('idade')
-    novo_usuario.save()
-
-    #Exibir usuarios
-    usuarios = {
-        'usuarios': Usuario.objects.all()
-    }
-
-    #Retornar para pagina de listar usario
-    return render(request, 'usuarios/usuarios.html', usuarios)
+    return render(request, 'home.html')
     
 def sobre(request):
-    return render(request, 'usuarios/sobre.html')
+    return render(request, 'sobre.html')
 
 def interesse(request):
     
     if request.method == 'POST':
-
         novo_interesse = Interesse()
+        nova_categoria = Categoria()
+
         novo_interesse.titulo = request.POST.get('titulo')
-        novo_interesse.categoria = request.POST.get('categoria')
-        novo_interesse.descricao = request.POST.get('descricao')
-        novo_interesse.imagem = request.FILES.get('file')
-        novo_interesse.save()
+        if novo_interesse.titulo:
+            novo_interesse.titulo = request.POST.get('titulo')
+            novo_interesse.descricao = request.POST.get('descricao')
+            tipoCategoria = request.POST.get('categoria')
+
+            categoria = Categoria.objects.filter(id=tipoCategoria)
+            novo_interesse.categoria = categoria[0]
+            novo_interesse.cat = categoria[0]
+            novo_interesse.imagem = request.FILES.get('file')
+            novo_interesse.save()
+
+        else:
+            nova_categoria.categoria = request.POST.get('nome_cat')
+            nova_categoria.descricacao = request.POST.get('descricao_cat')
+            nova_categoria.save()
 
     interesses = {
         "interesses": Interesse.objects.all(),
-        "image": Interesse.objects.all()
+        "categorias": Categoria.objects.all(),
     }
 
-    return render(request, 'usuarios/interesses.html', interesses)
+    return render(request, 'interesses.html', interesses)

@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+{% load static %}
+
+<head>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+</head>
+
+<style>
+    html,
+    body {
+        position: relative;
+        height: 100%;
+    }
+
+    body {
+        background: #eee;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .cabecalho {
+        font-size: 50px;
+        font-weight: 500;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        height: 60vh;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-interesse {
+        display: inline-flex;
+    }
+
+    .adicionar {
+        display: flex;
+        justify-content: end;
+    }
+
+    .text-descricao {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+</style>
+
+<div class="container">
+    <div class="cabecalho">
+        <p>Meus Interesses</p>
+    </div>
+</div>
+
+<div class="container adicionar">
+    <div class="btn-interesse" style="margin-left: 50%; border-right: 2px solid whitesmoke;">
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <p style="display: inline-block; font-size: 20px;">
+                Novo Interesse
+            </p>
+            <span class="material-symbols-outlined" style="padding-top: 10px;">
+                add
+            </span>
+        </button>
+    </div>
+    <div class="btn-interesse">
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ModalCategoria">
+            <p style="display: inline-block; font-size: 20px;">
+                Nova Categoria
+            </p>
+            <span class="material-symbols-outlined" style="padding-top: 10px;">
+                add
+            </span>
+        </button>
+    </div>
+</div>
+
+<!-- Modal Interesse -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark" style="color: white;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Novo Interesse</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    style="background-color: whitesmoke;"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'interesse' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Titulo do Interesse</label>
+                        <input name="titulo" type="text" class="form-control bg-dark" id="exampleInputEmail1"
+                            aria-describedby="textHelp" style="color: white;">
+                        <div id="textHelp" class="form-text">Coloque um titulo explicito.</div>
+                    </div>
+                    <div class="mb-3">
+                        <select name="categoria" class="form-select bg-dark mb-3" aria-label="Default select example"
+                            style="color: white;">
+                            <option selected>Categoria do Interesse</option>
+                            {% for categoria in categorias %}
+                            <option value={{categoria.id}}>{{categoria.categoria}}</option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Descrição do Interessse</label>
+                        <textarea name="descricao" class="form-control bg-dark" id="exampleFormControlTextarea1"
+                            rows="3" style="color: white;"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label bg-dark">Imagem</label>
+                        <input class="form-control" type="file" id="formFile" name="file">
+                        <div id="textHelp" class="form-text">Resolução recomendada: 350 x 240</div>
+                    </div>
+
+                    <div class="modal-footer mb-0">
+                        <button type="submit" class="btn btn-primary">Salvar novo Interesse</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Categoria -->
+<div class="modal fade" id="ModalCategoria" tabindex="-1" aria-labelledby="ModalCategoria" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark" style="color: white;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Novo Categoria</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    style="background-color: whitesmoke;"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'interesse' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Nome da Categoria</label>
+                        <input name="nome_cat" type="text" class="form-control bg-dark" id="exampleInputEmail1"
+                            aria-describedby="textHelp" style="color: white;">
+                        <div id="textHelp" class="form-text">Coloque um nome explicito.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Descrição da Categoria</label>
+                        <textarea name="descricao_cat" class="form-control bg-dark" id="exampleFormControlTextarea1"
+                            rows="3" style="color: white;"></textarea>
+                    </div>
+                    <div class="modal-footer mb-0">
+                        <button type="submit" class="btn btn-primary">Salvar nova Categoria</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% for categoria in categorias %}
+
+<div class="container mb-5 pb-5">
+    <h1 style="color: white;" class="pb-3">{{categoria.categoria}}</h1>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+            {% for interesse in interesses %}
+            {% if interesse.cat == categoria.categoria %}
+            <div class="swiper-slide">
+                <div class="card bg-dark" style="width: 25rem; height: 27rem; color: white;">
+                    <div class="bg-image hover-zoom">
+                        {% if interesse.imagem == null or interesse.imagem == ''%}
+                        <img src="{% static 'img/no-pictures.png' %}" class="card-img-top" alt="..."
+                            style="height: 240px !important;">
+                        {% else %}
+                        <img src="../media/{{interesse.imagem}}" class="card-img" alt="..."
+                            style="height: 240px !important;">
+                        {% endif %}
+                    </div>
+                    <div class="card-body" style="height: 20rem;">
+                        <h4 class="card-title">{{interesse.titulo}}</h4>
+                        <p class="card-text text-descricao" style="color: #d3d3d3 !important">{{interesse.descricao}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+{% endfor %}
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>
+{% endblock %}

@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Interesse, Categoria
 
-# Register your models here.
+admin.site.register(Interesse)
+admin.site.register(Categoria)
